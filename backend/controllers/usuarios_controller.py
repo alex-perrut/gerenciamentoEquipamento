@@ -91,3 +91,5 @@ def deletarUsuario(id: int, db: Session):
         }    
     except OperationalError as e:
         raise RuntimeError("Falha na conexão com o Banco de Dados") from e
+    except IntegrityError as e:
+        raise ValueError("Não é possível excluir o usuário devido a dependências") from e
