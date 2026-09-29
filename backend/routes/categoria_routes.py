@@ -30,7 +30,7 @@ def pegar_Categoria(id:int, categoria: CategoriaEquipamento, db: Session = Depen
         raise HTTPException(status_code=500, detail=str(e))
     
 @categoriaEquipamentoRouter.delete("/deletar_categoria/{id}")
-def deletar_Categoria(id:int, db: Session = Depends(database.get_session)):
+def deletarCategorias(id:int, db: Session = Depends(database.get_session)):
     try:
         deletarCategoria(id, db)
 

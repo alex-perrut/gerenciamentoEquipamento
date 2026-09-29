@@ -61,6 +61,7 @@ def deletar_Usuario(id:int, db: Session = Depends(database.get_session)):
         deletarUsuario(id, db)
 
         return{"Deletado com sucesso"}
+    
     except ValueError as e:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=str(e))
     except RuntimeError as e:
